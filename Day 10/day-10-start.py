@@ -19,10 +19,12 @@
 ### la version simplifiée ###
 
 def format_name(first_name, last_name):
+	if first_name == "" or last_name == "":
+		return "You didn't provide valid inputs"
 	f_name = first_name.title()
 	l_name = last_name.title()
 
 	return f"{f_name} {l_name}"
 
 
-print(format_name("foued", "gasmi"))
+print(format_name("", ""))
