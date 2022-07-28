@@ -16,6 +16,13 @@ empty_dictionary = {}
 programming_dictionary["Bug"] = "A moth in your computer"
 # print(programming_dictionary)
 
+for thing in programming_dictionary:
+	"""print only the key in a dictionary"""
+	print(thing)
+	"""print only the value in a dictionary"""
+	print(programming_dictionary[thing])
+
 # loop through a dictionary
 for thing in programming_dictionary:
+	"""print both key and value in a dictionary"""
 	print(thing,":", programming_dictionary[thing])
