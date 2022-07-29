@@ -21,11 +21,17 @@ def divide(n1, n2):
 	return n1 / n2
 
 
+def calculator(number1, number2):
+	return operation[operation_symbol](number1, number2)
+
+
 operation = {"+": add,
              "-": sub,
              "*": multiple,
              "/": divide,
              }
+
+exit_calc = False
 
 num1 = int(input("What's the first number ?: "))
 
@@ -36,18 +42,17 @@ for key in operation:
 operation_symbol = input("Pick an operation from the lines above: ")
 num2 = int(input("What's the second number ?: "))
 
+answer = calculator(num1, num2)
+print(type(answer))
+print(f"{num1} {operation_symbol} {num2} = {answer}")
+while not exit_calc:
+	num1 = answer
+	continue_calc = input(f"type 'y' to continue calculating with {answer}, or type 'n' to exit.")
+	if continue_calc == 'n':
+		exit_calc = True
+	operation_symbol = input("Pick another operation: ")
+	num2 = int(input("What's the next number ?: "))
 
-def calculator(number1, number2):
-	return operation[operation_symbol](number1, number2)
-
-
-first_answer = calculator(num1, num2)
-print(type(first_answer))
-print(f"{num1} {operation_symbol} {num2} = {first_answer}")
-
-operation_symbol = input("Pick another operation: ")
-num3 = int(input("What's the third number ?: "))
-
-second_answer = calculator(first_answer, num3)
-
-print(f"{first_answer} {operation_symbol} {num3} = {second_answer}")
+	answer_next = calculator(answer, num2)
+	print(f"{answer} {operation_symbol} {num2} = {answer_next}")
+	answer = answer_next
